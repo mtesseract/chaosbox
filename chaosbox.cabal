@@ -1,0 +1,41 @@
+cabal-version: 1.12
+name:           chaosbox
+version:        0.1.0.0
+category:       Art
+homepage:       https://github.com/5outh/chaosbox#readme
+author:         Benjamin Kovach
+maintainer:     bkovach13@gmail.com
+copyright:      2018 Benjamin Kovach
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+library
+  exposed-modules:
+      ChaosBox
+      ChaosBox.Color
+      ChaosBox.Generate
+  other-modules:
+      Paths_chaosbox
+  hs-source-dirs:
+      src
+  default-extensions: TypeApplications RecordWildCards LambdaCase
+  build-depends:
+      MonadRandom
+    , base >=4.7 && <5
+    , cairo
+    , colour
+    , directory
+    , linear
+    , mtl
+    , optparse-applicative
+    , process
+    , random
+    , random-fu >= 0.2.7.3
+    , random-source
+    , semigroups
+    , time
+    , transformers
+  default-language: Haskell2010
