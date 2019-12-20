@@ -1,11 +1,11 @@
 cabal-version: 1.12
 name:           chaosbox
-version:        0.1.0.0
+version:        0.1.1.0
 category:       Art
-homepage:       https://github.com/5outh/chaosbox#readme
-author:         Benjamin Kovach
-maintainer:     bkovach13@gmail.com
-copyright:      2018 Benjamin Kovach
+homepage:       https://github.com/mtesseract/chaosbox#readme
+author:         Benjamin Kovach, Moritz Clasmeier
+maintainer:     mtesseract@silverratio.net
+copyright:      2018 Benjamin Kovach, 2019 Moritz Clasmeier
 license:        MIT
 license-file:   LICENSE
 build-type:     Simple
