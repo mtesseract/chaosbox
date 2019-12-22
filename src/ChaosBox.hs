@@ -6,10 +6,12 @@ module ChaosBox
     Opts (..),
     module ChaosBox.Generate,
     module ChaosBox.Color,
+    module ChaosBox.Coordinates,
   )
 where
 
 import ChaosBox.Color
+import ChaosBox.Coordinates
 import ChaosBox.Generate
 import Control.Monad.Random
 import Control.Monad.Reader

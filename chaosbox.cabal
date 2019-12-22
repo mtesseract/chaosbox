@@ -1,6 +1,6 @@
 cabal-version: 1.12
 name:           chaosbox
-version:        0.1.1.0
+version:        0.1.2.0
 category:       Art
 homepage:       https://github.com/mtesseract/chaosbox#readme
 author:         Benjamin Kovach, Moritz Clasmeier
@@ -17,6 +17,7 @@ library
       ChaosBox
       ChaosBox.Color
       ChaosBox.Generate
+      ChaosBox.Coordinates
   other-modules:
       Paths_chaosbox
   hs-source-dirs:
