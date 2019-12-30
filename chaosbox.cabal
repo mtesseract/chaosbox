@@ -1,6 +1,6 @@
 cabal-version: 1.12
 name:           chaosbox
-version:        0.1.2.0
+version:        0.1.3.0
 category:       Art
 homepage:       https://github.com/mtesseract/chaosbox#readme
 author:         Benjamin Kovach, Moritz Clasmeier
@@ -18,11 +18,15 @@ library
       ChaosBox.Color
       ChaosBox.Generate
       ChaosBox.Coordinates
+      ChaosBox.Path
   other-modules:
       Paths_chaosbox
   hs-source-dirs:
       src
-  default-extensions: TypeApplications RecordWildCards LambdaCase
+  default-extensions: TypeApplications
+                    , RecordWildCards
+                    , LambdaCase
+                    , DeriveFunctor
   build-depends:
       MonadRandom
     , base >=4.7 && <5
@@ -39,4 +43,5 @@ library
     , semigroups
     , time
     , transformers
+    , rvar
   default-language: Haskell2010
