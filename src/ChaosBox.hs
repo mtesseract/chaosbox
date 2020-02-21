@@ -18,6 +18,7 @@ import Control.Monad.Reader
 import Data.IORef
 import Data.Maybe
 import Data.Semigroup ((<>))
+import Data.Time.Clock (diffUTCTime, getCurrentTime, nominalDiffTimeToSeconds)
 import Data.Time.Clock.POSIX
 import Graphics.Rendering.Cairo
 import Graphics.Rendering.Cairo.Matrix (Matrix (..))
@@ -104,6 +105,8 @@ runChaosBoxWith Opts {..} doRender = replicateM_ optRenderTimes $ do
           optRenderProgress
           progressRef
           beforeSaveHookRef
+  putStrLn "Generating art..."
+  t0 <- getCurrentTime
   void . renderWith surface . flip runReaderT ctx . flip runRandT stdGen $ do
     cairo $ do
       scale optScale optScale
@@ -114,7 +117,10 @@ runChaosBoxWith Opts {..} doRender = replicateM_ optRenderTimes $ do
     case mHook of
       Nothing -> pure ()
       Just hook -> hook
-  putStrLn "Generating art..."
+  t1 <- getCurrentTime
+  let dt = round (nominalDiffTimeToSeconds (t1 `diffUTCTime` t0)) :: Int
+      dtMinutes = dt `div` 60
+      dtSeconds = dt `mod` 60
   let filename =
         "images/"
           <> optName
@@ -127,6 +133,11 @@ runChaosBoxWith Opts {..} doRender = replicateM_ optRenderTimes $ do
       latest = "images/" <> optName <> "/latest.png"
   putStrLn $ "Writing " <> filename
   putStrLn $ "Writing " <> latest
+  putStrLn $
+    "Elapsed time: "
+      <> (if dtMinutes > 1 then (show dtMinutes <> "m") else "")
+      <> show dtSeconds
+      <> "s"
   surfaceWriteToPNG surface filename
   surfaceWriteToPNG surface latest
 

@@ -1,6 +1,6 @@
 cabal-version: 1.12
 name:           chaosbox
-version:        0.1.3.0
+version:        0.1.4.0
 category:       Art
 homepage:       https://github.com/mtesseract/chaosbox#readme
 author:         Benjamin Kovach, Moritz Clasmeier
@@ -41,7 +41,7 @@ library
     , random-fu >= 0.2.7.3
     , random-source
     , semigroups
-    , time
+    , time >= 1.9.3
     , transformers
     , rvar
   default-language: Haskell2010
